@@ -1,0 +1,19 @@
+All Posts:
+Title: Ruby Basics
+Author: John Doe
+Content: An introduction to Ruby programming.
+Published on: 2023-12-03T21:09:39+00:00
+-------------------------
+Title: Ruby on Rails
+Author: Jane Smith
+Content: Building web applications with Rails.
+Published on: 2023-12-03T21:09:39+00:00
+-------------------------
+Title: Metaprogramming Magic
+Author: John Doe
+Content: Exploring Ruby's metaprogramming features.
+Published on: 2023-12-03T21:09:39+00:00
+-------------------------
+Posts by John Doe:
+Ruby Basics
+Metaprogramming Magic

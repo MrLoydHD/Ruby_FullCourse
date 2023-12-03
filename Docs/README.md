@@ -6,9 +6,9 @@
   - [Table of Contents](#table-of-contents)
   - [Documentation](#documentation)
     - [1 - What is Ruby? What is it used for?](#1---what-is-ruby-what-is-it-used-for)
-      - [**1.1 - Introduction to Ruby**](#11---introduction-to-ruby)
-      - [**1.2 - Ruby's Purpose and Use-Cases**](#12---rubys-purpose-and-use-cases)
-    - [**1.3 - Ruby's Strengths**](#13---rubys-strengths)
+      - [1.1 - Introduction to Ruby](#11---introduction-to-ruby)
+      - [1.2 - Ruby's Purpose and Use-Cases](#12---rubys-purpose-and-use-cases)
+      - [1.3 - Ruby's Strengths](#13---rubys-strengths)
     - [**1.4 - Ruby's Weaknesses**](#14---rubys-weaknesses)
     - [2 - Ruby's Installation](#2---rubys-installation)
       - [2.1 - Windows](#21---windows)
@@ -24,7 +24,7 @@
 
 ### 1 - What is Ruby? What is it used for?
 
-#### **1.1 - Introduction to Ruby**
+#### 1.1 - Introduction to Ruby
 
 - **History and Background**
 
@@ -36,7 +36,9 @@
 
     The foundational philosophy behind Ruby’s design is that programming languages should make programmers happy. It is a language designed for programmer productivity and fun, following the principles of good user interface design. Ruby is a language of careful balance. The language's syntax and structure aim to reduce mental overhead for developers, thereby fostering increased productivity. But Ruby is not only for experienced developers. It's also a great language for those who are new to programming or who are new to the Ruby language.
 
-#### **1.2 - Ruby's Purpose and Use-Cases**
+---
+
+#### 1.2 - Ruby's Purpose and Use-Cases
 
 - **Web Development**
 
@@ -67,7 +69,9 @@
   - [Cucumber](https://en.wikipedia.org/wiki/Cucumber_(software)#:~:text=Cucumber%20was%20originally%20written%20in,implementations%2C%20including%20Java%20and%20JavaScript) (a tool for running automated tests written in plain language)
   - [Sass](https://sass-lang.com/ruby-sass/#:~:text=Ruby%20Sass%20was%20the%20original,But%20Why) (a popular CSS pre-processor)
 
-### **1.3 - Ruby's Strengths**
+---
+
+#### 1.3 - Ruby's Strengths
 
 - **Readability and Writability**
 
@@ -84,6 +88,8 @@
 - **Portability and Compatibility**
 
     Ruby is highly portable, available on numerous platforms like Windows, macOS, Linux, and BSD. It also boasts compatibility with several programming languages, including C, C++, Java, Python, and Perl, enhancing its versatility in diverse environments.
+
+---
 
 ### **1.4 - Ruby's Weaknesses**
 
@@ -106,6 +112,8 @@
 - **Ecosystem and Dependency Mangement**
 
     While Ruby has a vast ecosystem, the dependency management can sometimes be complex, especially when dealing with larger applications or numerous external libraries. This can make application maintenance and upgrades more challenging.
+
+---
 
 ### 2 - Ruby's Installation
 
@@ -187,27 +195,20 @@
 
     ```ruby
     =begin
-    This is a multi-line comment
+    This is a 
+    multi-line 
+    comment
     =end
     ```
 
 #### 3.2 - Variables
 
-- **Variable Declaration**
+- **Variable Declaration and Assigment**
 
     Variables are declared using the `=` operator. The variable name is on the left side of the `=` operator, and the value is on the right side of the `=` operator.
 
     ```ruby
-    # Variable declaration
-    variable = value
-    ```
-
-- **Variable Assignment**
-
-    Variables can be assigned using the `=` operator. The variable name is on the left side of the `=` operator, and the value is on the right side of the `=` operator.
-
-    ```ruby
-    # Variable assignment
+    # Variable declaration and assignment
     variable = value
     ```
 
@@ -286,5 +287,22 @@ There are several different data types in Ruby. Each data type has a specific pu
 | Nil          | Represents "nothing" or "no value"                    | `nil`                     |
 | Range        | Sequence of values with a start and end point         | `(1..5)`, `(a...z)`       |
 | Regexp       | Regular expression for pattern matching               | `/[A-Z]/`, `/^\d+$/`      |
+
+- **Integer**
+
+    Integers are whole numbers, both positive and negative. They can be represented in decimal, hexadecimal, octal, and binary formats.
+
+    ```ruby
+    # Integers
+    5
+    -20 
+    0x5 # 5 in hexadecimal
+    0b101 # 5 in binary
+    0o10 # 8 in octal
+    ```
+
+- **Float**
+  
+  <!-- TODO and the rest -->
 
 #### 3.4 - Operators

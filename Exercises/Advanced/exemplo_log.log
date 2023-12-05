@@ -1,0 +1,14 @@
+
+[2023-03-15 14:30:22] INFO: Início da execução do programa.
+[2023-03-15 14:31:22] ERRO: Falha na conexão com o servidor.
+[2023-03-15 14:32:22] ALERTA: Uso de memória acima do esperado.
+[2023-03-15 14:33:22] INFO: Processamento de dados em progresso.
+[2023-03-15 14:34:22] ERRO: Erro ao acessar o banco de dados.
+[2023-03-15 14:35:22] INFO: Execução do programa concluída com sucesso.
+This is a invalid log line.
+[2023-03-15 14:36:22] INFO: Início da execução do programa.
+[2023-03-15 14:37:22] ERRO: Falha na conexão com o servidor.
+[2023-03-15 14:38:22] ALERTA: Uso de memória acima do esperado.
+[2023-03-15 14:39:22] INFO: Processamento de dados em progresso.
+[2023-03-15 14:40:22] ERRO: Erro ao acessar o banco de dados.
+[2023-03-15 14:41:22] INFO: Execução do programa concluída com sucesso.

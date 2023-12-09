@@ -137,7 +137,7 @@
 #### 1.5 - Memory Management and Garbage Collection
 
 - **Gargabe Collector**
-   
+
   - **_Generational GC:_** Continues to improve performance by focusing more frequently on collecting younger objects, which are more likely to be garbage.
   - **_Incremental GC:_** Reduces long pauses in program execution by breaking down the garbage collection process into smaller steps.
   - **_Memory Compaction:_** Introduced in Ruby 2.7 and improved in Ruby 3, memory compaction reduces memory fragmentation by moving objects to contiguous memory spaces.

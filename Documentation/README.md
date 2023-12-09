@@ -10,9 +10,10 @@
       - [1.2 - Ruby's Purpose and Use-Cases](#12---rubys-purpose-and-use-cases)
       - [1.3 - Ruby's Strengths](#13---rubys-strengths)
       - [1.4 - Ruby's Weaknesses](#14---rubys-weaknesses)
-      - [1.5 - Ruby's Paradigms](#15---rubys-paradigms)
-      - [1.6 - Ruby's Paralellism and Concurrency](#16---rubys-paralellism-and-concurrency)
-      - [1.7 - Ruby's Future](#17---rubys-future)
+      - [1.5 - Memory Management and Garbage Collection](#15---memory-management-and-garbage-collection)
+      - [1.6 - Ruby's Paradigms](#16---rubys-paradigms)
+      - [1.7 - Ruby's Paralellism and Concurrency](#17---rubys-paralellism-and-concurrency)
+      - [1.8 - Ruby's Future](#18---rubys-future)
     - [2 - Ruby's Installation](#2---rubys-installation)
       - [2.1 - Windows](#21---windows)
       - [2.2 - Linux](#22---linux)
@@ -133,7 +134,37 @@
 
 ---
 
-#### 1.5 - Ruby's Paradigms
+#### 1.5 - Memory Management and Garbage Collection
+
+- **Gargabe Collector**
+   
+  - **_Generational GC:_** Continues to improve performance by focusing more frequently on collecting younger objects, which are more likely to be garbage.
+  - **_Incremental GC:_** Reduces long pauses in program execution by breaking down the garbage collection process into smaller steps.
+  - **_Memory Compaction:_** Introduced in Ruby 2.7 and improved in Ruby 3, memory compaction reduces memory fragmentation by moving objects to contiguous memory spaces.
+
+- **Memory Usage**
+
+  Ruby's memory management is often seen as less efficient, leading to higher memory usage in certain applications. This can be a limiting factor in memory-intensive operations.
+
+  - **_Memory Efficiency:_** Historically, Ruby has been criticised for its relatively high memory usage. This is partly due to Ruby's object model, where even integers are treated as objects, consuming more memory than in languages where integers are primitive types.
+  - **_Improvements in Version 3:_** Ruby 3 has made efforts to enhance memory efficiency. For instance, the introduction of memory compaction helps reduce fragmentation, which can lead to more efficient memory usage.
+  - **_Development Practices:_** Developers can also take steps to improve memory efficiency, such as avoiding unnecessary object creation and using symbols instead of strings. This can help reduce memory usage and improve performance.
+
+- **Memory Management**
+
+  - **_Automation with GC:_** Ruby's Garbage Collector (GC) automatically manages most of the object lifecycle, freeing up memory for objects that are no longer accessible.
+
+  - **_Manual Interventions:_** In specific situations, developers might need to intervene, such as manually releasing resources or explicitly calling GC.start. However, this should be approached with caution.
+
+  - **_Monitoring and Diagnostics:_** Ruby 3 provides tools and libraries for monitoring memory usage and diagnosing memory-related issues, making it easier for developers to optimise memory usage in their applications.
+
+**Conclusion**
+
+  While Ruby 3 has significantly improved in terms of memory efficiency and GC performance compared to previous versions, there is still room for optimisation, particularly in applications that are highly memory-intensive. Understanding how Ruby handles memory is crucial for writing efficient applications and solving issues related to memory usage.
+
+---
+
+#### 1.6 - Ruby's Paradigms
 
 Ruby is a multi-paradigm programming language, meaning that it supports several different programming paradigms. These include:
 
@@ -155,7 +186,11 @@ Ruby is a multi-paradigm programming language, meaning that it supports several 
 
 - **Reflective**
 
-    Ruby possesses metaprogramming, which enables programmes to manipulate their own structure and behaviour at runtime. This is powerful for the creation of DSLs (Domain-Specific Languages) and metaclasses, which are the classes of classes.
+    Ruby possesses metaprogramming, which enables programmes to manipulate their own structure and behaviour at runtime. This is powerful for the creation of DSLs (Domain-Specific Languages) and metaclasses, which are the classes of classes. Ruby also supports reflection, which allows for the inspection of objects and classes at runtime. This is useful for debugging and testing.
+
+      - **Metaprogramming**
+          
+          Metaprogramming is a programming technique in which computer programs have the ability to treat other programs as their data. It means that a program can be designed to read, generate, analyse or transform other programs, and even modify itself while running. 
 
 - **Scripting**
 
@@ -165,7 +200,7 @@ By incorporating these paradigms, Ruby provides a rich and flexible programming 
 
 ---
 
-#### 1.6 - Ruby's Paralellism and Concurrency
+#### 1.7 - Ruby's Paralellism and Concurrency
 
 Ruby is a flexible and dynamic programming language that supports various programming paradigms. Here, we delve into its concurrency and parallelism capabilities:
 
@@ -183,7 +218,7 @@ While Ruby is not traditionally known for its performance in parallelism and con
 
 ---
 
-#### 1.7 - Ruby's Future
+#### 1.8 - Ruby's Future
 
 As the landscape of programming languages continues to evolve, Ruby's future is shaped by its adaptability, community engagement, and ongoing development efforts. The language is poised to address contemporary programming challenges while staying true to its ethos of programmer happiness and productivity.
 
@@ -267,7 +302,7 @@ In summary, Ruby's future looks promising, with concerted efforts to improve per
 
     The first step is to install Ruby. You can install Ruby by running the following command:
 
-    ```bash
+    ```sh
     brew install ruby
     ```
 

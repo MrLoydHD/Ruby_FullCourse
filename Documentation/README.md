@@ -21,7 +21,7 @@
     - [3 - Ruby Basic Setup (after installation)](#3---ruby-basic-setup-after-installation)
       - [3.1 - Choosing a IDE](#31---choosing-a-ide)
       - [3.2 - Manage Ruby Gems](#32---manage-ruby-gems)
-    - [4 - Ruby Basic Syntax](#4---ruby-basic-syntax)
+    - [4 - Ruby Syntax](#4---ruby-syntax)
       - [4.1 - Reserved Words](#41---reserved-words)
       - [4.2 - Comments](#42---comments)
       - [4.3 - Variables](#43---variables)
@@ -70,10 +70,43 @@
         - [**Method Chaining**](#method-chaining)
         - [**Method Overloading**](#method-overloading)
         - [**Method Overriding**](#method-overriding)
-        - [**Method Missing**](#method-missing)
         - [**Method Access Control**](#method-access-control)
         - [**Method Reflection**](#method-reflection)
-      - [4.9 - Classes](#49---classes)
+        - [**Method Metaprogramming**](#method-metaprogramming)
+        - [**Method Decorators**](#method-decorators)
+        - [**Method Hooks**](#method-hooks)
+        - [**Recursive Methods**](#recursive-methods)
+      - [4.9 - Blocks](#49---blocks)
+        - [**Block Syntax**](#block-syntax)
+        - [**Block Call**](#block-call)
+        - [**Block Arguments**](#block-arguments)
+        - [**Block Return Value**](#block-return-value)
+        - [**Block Scope**](#block-scope)
+        - [**Block Aliases**](#block-aliases)
+        - [**Block Chaining**](#block-chaining)
+        - [**Begin and End Blocks**](#begin-and-end-blocks)
+      - [4.10 - Lambdas](#410---lambdas)
+        - [**Lambda Syntax**](#lambda-syntax)
+        - [**Lambda Call**](#lambda-call)
+        - [**Lambda Arguments**](#lambda-arguments)
+        - [**Lambda Return Value**](#lambda-return-value)
+        - [**Lambda Scope**](#lambda-scope)
+        - [**Lambda Aliases**](#lambda-aliases)
+        - [**Lambda Chaining**](#lambda-chaining)
+        - [**Lambdas vs Methods vs Block**](#lambdas-vs-methods-vs-block)
+      - [4.11 - Modules](#411---modules)
+        - [**Module Declaration**](#module-declaration)
+        - [**Module Call**](#module-call)
+        - [**Module Constants**](#module-constants)
+        - [**Module Methods**](#module-methods)
+        - [**Module Variables**](#module-variables)
+        - [**Module Aliases**](#module-aliases)
+        - [**Module Chaining**](#module-chaining)
+        - [**Module Inheritance**](#module-inheritance)
+        - [**Module Hooks**](#module-hooks)
+      - [4.12 - Date and Time](#412---date-and-time)
+      - [4.13 - File I/O](#413---file-io)
+      - [4.14 - Exceptions](#414---exceptions)
 
 ## Documentation
 
@@ -224,9 +257,9 @@ Ruby is a multi-paradigm programming language, meaning that it supports several 
 
     Ruby possesses metaprogramming, which enables programmes to manipulate their own structure and behaviour at runtime. This is powerful for the creation of DSLs (Domain-Specific Languages) and metaclasses, which are the classes of classes. Ruby also supports reflection, which allows for the inspection of objects and classes at runtime. This is useful for debugging and testing.
 
-      - **Metaprogramming**
-          
-          Metaprogramming is a programming technique in which computer programs have the ability to treat other programs as their data. It means that a program can be designed to read, generate, analyse or transform other programs, and even modify itself while running. 
+  - **Metaprogramming**
+
+    Metaprogramming is a programming technique in which computer programs have the ability to treat other programs as their data. It means that a program can be designed to read, generate, analyse or transform other programs, and even modify itself while running.
 
 - **Scripting**
 
@@ -465,7 +498,7 @@ The use of gems is not limited to utilising existing libraries; developers are a
 
 ---
 
-### 4 - Ruby Basic Syntax
+### 4 - Ruby Syntax
 
 #### 4.1 - Reserved Words
 
@@ -1460,6 +1493,15 @@ Methods are called using the `.` operator. The method name is on the left side o
 object.method_name
 ```
 
+However, when you call a method with parameters, you write the method name along with the parameters, such as −
+  
+  ```ruby
+  # Method call with parameters
+  object.method_name(parameter1, parameter2)
+  # or
+  object.method_name parameter1, parameter2
+  ```
+
 ##### **Method Arguments**
 
 Methods can take arguments. Arguments are passed to the method using the `()` operator. The arguments are separated by commas.
@@ -1471,7 +1513,40 @@ def method_name(argument1, argument2)
 end
 ```
 
+Methods can set default values for their arguments. The default values are set using the `=` operator. The default values are used when no value is passed to the method.
+
+```ruby
+# Method arguments with default values
+def method_name(argument1 = value1, argument2 = value2)
+  # Method body
+end
+```
+
+Finally, methods can take a variable number of arguments. The variable number of arguments are passed to the method using the `*` operator. The variable number of arguments are stored in an array.
+
+```ruby
+# Method arguments with variable number of arguments
+def method_name(*arguments)
+  # Method body
+end
+
+#Calling the method
+method_name(argument1, argument2, argument3, ...)
+```
+
 ##### **Method Return Value**
+
+The return statement in ruby is used to return one or more values from a Ruby Method.
+
+Basic Syntax:
+
+```ruby
+# Method return value
+def method_name
+  # Method body
+  return [expression[',' expression...]]
+end
+```
 
 Methods can return a value. The return value is the last expression evaluated in the method body.
 
@@ -1482,6 +1557,17 @@ def method_name
   return value
 end
 ```
+
+Methods can also return multiple values. The return values are separated by commas.
+
+```ruby
+# Method return value
+def method_name
+  # Method body
+  return value1, value2
+end
+```
+
 
 ##### **Method Scope**
 
@@ -1569,17 +1655,6 @@ def method_name(argument1, argument2, argument3)
 end
 ```
 
-##### **Method Missing**
-
-Methods can be missing using the `method_missing` keyword. The method name is on the left side of the `method_missing` keyword, and the method arguments are on the right side of the `method_missing` keyword.
-
-```ruby
-# Method missing
-def method_missing(method_name, *arguments)
-  # Method body
-end
-```
-
 ##### **Method Access Control**
 
 Methods can be accessed using the `public`, `protected`, and `private` keywords. The method name is on the left side of the `public`, `protected`, and `private` keywords, and the method arguments are on the right side of the `public`, `protected`, and `private` keywords.
@@ -1609,6 +1684,804 @@ Exanple:
 puts "Hello".method(:upcase).call() # HELLO
 ```
 
-#### 4.9 - Classes
+##### **Method Metaprogramming**
+
+Methods can be metaprogrammed using the `define_method` keyword. The method name is on the left side of the `define_method` keyword, and the method arguments are on the right side of the `define_method` keyword.
+
+```ruby
+# Method metaprogramming
+define_method(:method_name) do |argument1, argument2|
+  # Method body
+end
+```
+
+##### **Method Decorators**
+
+Methods can be decorated using the `method_added` keyword. The method name is on the left side of the `method_added` keyword, and the method arguments are on the right side of the `method_added` keyword.
+
+```ruby
+# Method decorators
+def method_added(method_name)
+  # Method body
+end
+```
+
+##### **Method Hooks**
+
+Ruby Hook Methods are called in reaction to something you do. They are usually used to extend the working of methods at run time. These methods are not defined by default, but a programmer can define them according to imply them on any object or class or module and they will come into picture when certain events occur. These methods are called automatically when certain events occur.
+
+There are several Ruby Hook Methods, but majorly, the followings have major roles to play:
+
+1. Included
+2. Prepended
+3. Extended
+4. Inherited
+5. method_missing
+6. More methods are available on the [Ruby Docs](https://ruby-doc.org/core-3.0.2/Module.html)
+
+- **Included**
+
+  This method is used to include a method or attribute or module to another module. The method makes the underlined module available to the instances of the class. The following example explains the usage and working of the include method.
+
+  Example:
+
+  ```ruby
+  # Declaring a module to greet a person
+  module Greetings
+  
+    def self.included(person_to_be_greeted) 
+  
+      puts "The #{person_to_be_greeted} is welcomed with an open heart !"
+    end
+  end
+  
+  # Class where the module is included
+  class Person
+  
+    include Greetings # implementation of the include statement
+  end
+
+  # Output
+  The Person is welcomed with an open heart !
+  ```
+
+- **Prepended**
+
+  This method was brought by Ruby 2.0. This is slightly different from what we observed above. Prepended method provides another way of extending the functioning of modules at different places. This uses the concept of overriding. The modules can be overridden using methods defined in the target class.
+
+  Example:
+
+  ```ruby
+  # Code as an example for prepend method
+  module Ruby
+
+  def self.prepended(target)# Implementation of prepend method
+    puts "#{self} has been prepended to #{target}"
+  end
+
+  def Type
+    "The Type belongs to Ruby"
+  end
+  end
+
+  class Coding
+
+  prepend Ruby # the module Ruby is prepended
+  end
+
+  # Method call
+  puts Coding.new.Type 
+
+  # Output
+  Ruby has been prepended to Coding
+  ```
+
+- **Extended**
+
+  This method is a bit different from both the include and prepend method. While include applies methods in a certain module to instance of a class, extend applies those methods to the same class.
+
+  Example:
+
+  ```ruby
+  # Code as an example for prepend method
+  module Ruby
+
+  def self.prepended(target)# Implementation of prepend method
+    puts "#{self} has been prepended to #{target}"
+  end
+
+  def Type
+    "The Type belongs to Ruby"
+  end
+  end
+
+  class Coding
+
+  prepend Ruby # the module Ruby is prepended
+  end
+
+  # Method call
+  puts Coding.new.Type 
+
+  # Output
+  Ruby has been prepended to Coding
+  The Type belongs to Ruby
+  ```
+
+- **Inherited**
+
+  Inheritance as a concept is one of the most important concepts of [Object Oriented Programming]() and is common in almost every programming language. In ruby, we deal in objects that are inspired from the real life, and thus, Oops operations play a very important role there. The inherited method is called whenever a subclass of a class is implemented. It is a method of making a child class from a parent class. 
+
+  Example:
+
+  ```ruby
+  # Making the parent Vehicle class
+  class Vehicle
+  
+    def self.inherited(car_type)
+      puts "#{car_type} is a kind of Vehicle"
+    end
+  
+  end
+  
+  # Target class
+  class Hyundai < Vehicle #Inhereting the Vehicle class
+  end
+
+  # Output
+  Hyundai is a kind of Vehicle
+  ```
+
+- **method_missing**
+
+  method_missing method which is one of the most widely used in Ruby. This comes to action when one tries to call a method on an object that does not exist.
+
+  Example:
+
+  ```ruby
+  # The main class
+  class Ruby
+
+  def method_missing(input, *args) # method_missing function in action
+    "#{input} not defined on #{self}"
+  end
+
+  def Type
+    "The Type is Ruby"
+  end
+  end
+
+  var = Ruby.new
+
+  # Calling a method that exists
+  puts var.Type 
+
+  # Calling a method that does not exist
+  puts var.Name 
+
+  # Output
+  The Type is Ruby
+  Name not defined on #<Ruby:0x0000000001e2f6c0>
+  ```
+
+##### **Recursive Methods**
+
+Recursive methods are methods that call themselves. They are used to solve problems that can be solved by breaking them down into smaller problems.
+
+```ruby
+# Recursive method
+def method_name(argument)
+  # Method body
+  method_name(argument)
+end
+```
+
+Example:
+
+```ruby
+# Recursive method example
+def factorial(n)
+  if n == 0
+    1
+  else
+    n * factorial(n - 1)
+  end
+end
+
+puts factorial(5) # 120
+```
+
+#### 4.9 - Blocks
+
+##### **Block Syntax**
+
+Blocks are used to group statements together. They are declared using the `do` keyword. The block body is on the right side of the `do` keyword.
+
+```ruby
+# Block syntax
+do
+  # Block body
+end
+```
+
+Example:
+
+```ruby
+# Block syntax example
+[1, 2, 3].each do |item|
+  puts item
+end
+```
+
+##### **Block Call**
+
+Blocks are called using the `yield` keyword. The block body is on the right side of the `yield` keyword.
+
+```ruby
+# Block call
+yield
+```
+
+Example:
+
+```ruby
+# Block call example
+def test
+   puts "You are in the method"
+   yield
+   puts "You are again back to the method"
+   yield
+end
+test {puts "You are in the block"}
+
+method_name { puts "Hello" } # Hello
+```
+
+##### **Block Arguments**
+
+Blocks can take arguments. Arguments are passed to the block using the `|` operator. The arguments are separated by commas.
+
+```ruby
+
+# Block arguments
+do |argument1, argument2|
+  # Block body
+end
+```
+
+Example:
+
+```ruby
+# Block arguments example
+[1, 2, 3].each do |item, index|
+  puts "#{index}: #{item}"
+end
+```
+
+##### **Block Return Value**
+
+Blocks can return a value. The return value is the last expression evaluated in the block body.
+
+```ruby
+# Block return value
+do
+  # Block body
+  return value
+end
+```
+
+Example:
+
+```ruby
+# Block return value example
+[1, 2, 3].each do |item|
+  return item
+end
+```
+
+##### **Block Scope**
+
+Blocks have a scope that determines where they can be accessed. There are three types of block scope: global, local, and instance.
+
+- **Global Blocks**
+
+  Global blocks are accessible from anywhere in the program. They are declared using the `$` character.
+
+  ```ruby
+  # Global block
+  $do
+    # Block body
+  end
+  ```
+
+- **Local Blocks**
+
+  Local blocks are only accessible from within the block in which they are declared. They are declared using the `local` keyword.
+
+  ```ruby
+  # Local block
+  local do
+    # Block body
+  end
+  ```
+
+- **Instance Blocks**
+
+  Instance blocks are accessible from anywhere within the class in which they are declared. They are declared using the `@` character.
+
+  ```ruby
+  # Instance block
+  @do
+    # Block body
+  end
+  ```
+
+##### **Block Aliases**
+
+Blocks can be aliased using the `alias` keyword. The alias name is on the left side of the `alias` keyword, and the block name is on the right side of the `alias` keyword.
+
+```ruby
+
+# Block alias
+
+alias alias_name do
+  # Block body
+end
+```
+
+##### **Block Chaining**
+
+Blocks can be chained together using the `.` operator. The block name is on the left side of the `.` operator, and the block arguments are on the right side of the `.` operator.
+
+```ruby
+# Block chaining
+do.name do |argument1, argument2|
+  # Block body
+end
+```
+
+##### **Begin and End Blocks**
+
+Begin and end blocks are used to group statements together. They are declared using the `begin` and `end` keywords. The block body is on the right side of the `begin` and `end` keywords.
+
+```ruby
+# Begin and end block
+begin
+  # Block body
+end
+```
+
+Example:
+  
+  ```ruby
+  # Begin and end block example
+  begin
+    puts "Hello"
+  end
+  ```
+
+#### 4.10 - Lambdas
+
+##### **Lambda Syntax**
+
+Lambdas are used to group statements together. They are declared using the `->` operator. The lambda body is on the right side of the `->` operator.
+
+```ruby
+# Lambda syntax
+-> do
+  # Lambda body
+end
+```
+
+Example:
+
+```ruby
+# Lambda syntax example
+
+-> { puts "Hello" }
+
+# or
+
+lambda { puts "Hello" }
+```
+
+##### **Lambda Call**
+
+Lambdas are called using the `call` keyword. The lambda body is on the right side of the `call` keyword.
+
+```ruby
+# Lambda call
+lambda.call
+```
+
+Example:
+
+```ruby
+# Lambda call example
+-> { puts "Hello" }.call
+
+# or
+
+lambda { puts "Hello" }.call
+```
+
+##### **Lambda Arguments**
+
+Lambdas can take arguments. Arguments are passed to the lambda using the `|` operator. The arguments are separated by commas.
+
+```ruby
+# Lambda arguments
+-> (argument1, argument2) do
+  # Lambda body
+end
+```
+
+Example:
+
+```ruby
+# Lambda arguments example
+-> (item, index) { puts "#{index}: #{item}" }.call
+
+# or
+
+lambda { |item, index| puts "#{index}: #{item}" }.call
+```
+
+##### **Lambda Return Value**
+
+Lambdas can return a value. The return value is the last expression evaluated in the lambda body.
+
+```ruby
+# Lambda return value
+-> do
+  # Lambda body
+  return value
+end
+```
+
+Example:
+
+```ruby
+# Lambda return value example
+-> { return "Hello" }.call
+
+# or
+
+lambda { return "Hello" }.call
+```
+
+##### **Lambda Scope**
+
+Lambdas have a scope that determines where they can be accessed. There are three types of lambda scope: global, local, and instance.
+
+- **Global Lambdas**
+
+  Global lambdas are accessible from anywhere in the program. They are declared using the `$` character.
+
+  ```ruby
+  # Global lambda
+  $->
+    # Lambda body
+  end
+  ```
+
+- **Local Lambdas**
+
+  Local lambdas are only accessible from within the lambda in which they are declared. They are declared using the `local` keyword.
+
+  ```ruby
+  # Local lambda
+  local ->
+    # Lambda body
+  end
+  ```
+
+- **Instance Lambdas**
+
+  Instance lambdas are accessible from anywhere within the class in which they are declared. They are declared using the `@` character.
+
+  ```ruby
+  # Instance lambda
+  @->
+    # Lambda body
+  end
+  ```
+
+##### **Lambda Aliases**
+
+Lambdas can be aliased using the `alias` keyword. The alias name is on the left side of the `alias` keyword, and the lambda name is on the right side of the `alias` keyword.
+
+```ruby
+# Lambda alias
+alias alias_name ->
+  # Lambda body
+end
+```
+
+##### **Lambda Chaining**
+
+Lambdas can be chained together using the `.` operator. The lambda name is on the left side of the `.` operator, and the lambda arguments are on the right side of the `.` operator.
+
+```ruby
+# Lambda chaining
+->.name (argument1, argument2) do
+  # Lambda body
+end
+```
+
+##### **Lambdas vs Methods vs Block**
+
+Lambdas, methods, and blocks are similar in many ways. They all have a name, arguments, and a body. However, there are some differences between them. The following table shows the differences between lambdas, methods, and blocks.
+
+| Lambda | Method | Block |
+| ------ | ------ | ----- |
+| Lambdas are used to group statements together. | Methods are used to group statements together. | Blocks are used to group statements together. |
+| Lambdas are declared using the `->` operator. | Methods are declared using the `def` keyword. | Blocks are declared using the `do` keyword. |
+| Lambdas are called using the `call` keyword. | Methods are called using the `.` operator. | Blocks are called using the `yield` keyword. |
+| Lambdas can take arguments. | Methods can take arguments. | Blocks can take arguments. |
+| Lambdas can return a value. | Methods can return a value. | Blocks can return a value. |
+| Lambdas have a scope that determines where they can be accessed. | Methods have a scope that determines where they can be accessed. | Blocks have a scope that determines where they can be accessed. |
+| Lambdas can be aliased using the `alias` keyword. | Methods can be aliased using the `alias` keyword. | Blocks can be aliased using the `alias` keyword. |
+| Lambdas can be chained together using the `.` operator. | Methods can be chained together using the `.` operator. | Blocks can be chained together using the `.` operator. |
+
+- **Lambdas**
+
+Example:
+
+```ruby
+# Lambdas example
+-> { puts "Hello" }.call
+```
+
+- **Methods**
+
+Example:
+
+```ruby
+# Methods example
+def method_name
+  puts "Hello"
+end
+
+method_name
+```
+
+- **Blocks**
+
+Example:
+
+```ruby
+
+# Blocks example
+
+do
+  puts "Hello"
+end
+```
+
+#### 4.11 - Modules
+
+##### **Module Declaration**
+
+Module constants are named just like class constants, with an initial uppercase letter. The method definitions look similar, too: Module methods are defined just like class methods.
+
+As with class methods, you call a module method by preceding its name with the module's name and a period, and you reference a constant using the module name and two colons.
+
+```ruby
+# Module declaration
+module ModuleName
+  # Module body
+end
+```
+
+Example:
+
+```ruby
+# Module declaration example
+module Greetings
+  def self.say_hello
+    puts "Hello"
+  end
+end
+
+Greetings.say_hello # Hello
+```
+
+##### **Module Call**
+
+Modules are called using the `include` keyword. The module name is on the left side of the `include` keyword, and the module arguments are on the right side of the `include` keyword.
+
+```ruby
+# Module call
+include ModuleName
+```
+
+Example:
+
+```ruby
+# Module call example
+module Greetings
+  def self.say_hello
+    puts "Hello"
+  end
+end
+
+include Greetings
+
+say_hello # Hello
+```
+
+##### **Module Constants**
+
+Module constants are named just like class constants, with an initial uppercase letter. The method definitions look similar, too: Module methods are defined just like class methods.
+
+As with class methods, you call a module method by preceding its name with the module's name and a period, and you reference a constant using the module name and two colons.
+
+```ruby
+# Module constants
+ModuleName::CONSTANT_NAME
+```
+
+Example:
+
+```ruby
+# Module constants example
+module Greetings
+  CONSTANT_NAME = "Hello"
+end
+
+puts Greetings::CONSTANT_NAME # Hello
+```
+
+##### **Module Methods**
+
+Module methods are named just like class methods, with an initial lowercase letter. The method definitions look similar, too: Module methods are defined just like class methods.
+
+As with class methods, you call a module method by preceding its name with the module's name and a period, and you reference a constant using the module name and two colons.
+
+```ruby
+# Module methods
+ModuleName.method_name
+```
+
+Example:
+
+```ruby
+# Module methods example
+module Greetings
+  def self.say_hello
+    puts "Hello"
+  end
+end
+
+Greetings.say_hello # Hello
+```
+
+##### **Module Variables**
+
+Module variables are named just like class variables, with an initial `@` character. The method definitions look similar, too: Module methods are defined just like class methods.
+
+As with class methods, you call a module method by preceding its name with the module's name and a period, and you reference a constant using the module name and two colons.
+
+```ruby
+# Module variables
+ModuleName.@variable_name
+```
+
+Example:
+
+```ruby
+# Module variables example
+module Greetings
+  @variable_name = "Hello"
+end
+
+puts Greetings.@variable_name # Hello
+```
+
+##### **Module Aliases**
+
+Modules can be aliased using the `alias` keyword. The alias name is on the left side of the `alias` keyword, and the module name is on the right side of the `alias` keyword.
+
+```ruby
+# Module alias
+alias alias_name ModuleName
+```
+
+Example:
+
+```ruby
+# Module alias example
+module Greetings
+  def self.say_hello
+    puts "Hello"
+  end
+end
+
+alias Greetings2 Greetings
+
+Greetings2.say_hello # Hello
+```
+
+##### **Module Chaining**
+
+Modules can be chained together using the `.` operator. The module name is on the left side of the `.` operator, and the module arguments are on the right side of the `.` operator.
+
+```ruby
+# Module chaining
+
+ModuleName.name ModuleName
+```
+
+Example:
+
+```ruby
+# Module chaining example
+module Greetings
+  def self.say_hello
+    puts "Hello"
+  end
+end
+
+Greetings.say_hello # Hello
+```
+
+##### **Module Inheritance**
+
+Modules can be inherited using the `<` operator. The module name is on the left side of the `<` operator, and the module arguments are on the right side of the `<` operator.
+
+```ruby
+# Module inheritance
+ModuleName < ModuleName
+```
+
+Example:
+
+```ruby
+
+# Module inheritance example
+module Greetings
+  def self.say_hello
+    puts "Hello"
+  end
+end
+
+module Greetings2 < Greetings
+  def self.say_hello2
+    puts "Hello2"
+  end
+end
+
+Greetings2.say_hello # Hello
+
+Greetings2.say_hello2 # Hello2
+```
+
+##### **Module Hooks**
+
+All the method hooks can be applied here. Check the [Method Hooks](#method-hooks) section for more information.
+
+#### 4.12 - Date and Time
+
+#### 4.13 - File I/O
+
+#### 4.14 - Exceptions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

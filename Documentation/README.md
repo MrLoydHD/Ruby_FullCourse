@@ -269,7 +269,7 @@ By incorporating these paradigms, Ruby provides a rich and flexible programming 
 
 ---
 
-#### 1.7 - Ruby's Paralellism and Concurrency
+#### 1.7 - Ruby's Parallelism and Concurrency
 
 Ruby is a flexible and dynamic programming language that supports various programming paradigms. Here, we delve into its concurrency and parallelism capabilities:
 

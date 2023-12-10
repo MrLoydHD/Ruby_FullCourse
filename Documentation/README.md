@@ -21,8 +21,7 @@
     - [3 - Ruby Basic Setup (after installation)](#3---ruby-basic-setup-after-installation)
       - [3.1 - Choosing a IDE](#31---choosing-a-ide)
       - [3.2 - Manage Ruby Gems](#32---manage-ruby-gems)
-      - [3.3 - Run Ruby Code](#33---run-ruby-code)
-    - [4 - Ruby's Basic Syntax](#4---rubys-basic-syntax)
+    - [4 - Ruby Basic Syntax](#4---ruby-basic-syntax)
       - [4.1 - Reserved Words](#41---reserved-words)
       - [4.2 - Comments](#42---comments)
       - [4.3 - Variables](#43---variables)
@@ -38,6 +37,43 @@
         - [**Range**](#range)
         - [**Regexp**](#regexp)
       - [4.5 - Operators](#45---operators)
+        - [**Arithmetic Operators**](#arithmetic-operators)
+        - [**Assignment Operators**](#assignment-operators)
+        - [**Comparison Operators**](#comparison-operators)
+        - [**Logical Operators**](#logical-operators)
+        - [**Parallel Assignment**](#parallel-assignment)
+        - [**Ternary Operator**](#ternary-operator)
+        - [**Bitwise Operators**](#bitwise-operators)
+        - [**Defined? Operator**](#defined-operator)
+        - [**Range Operators**](#range-operators)
+        - [**Operators Precedence**](#operators-precedence)
+      - [4.6 - Conditionals](#46---conditionals)
+        - [**If Statement**](#if-statement)
+        - [**Unless Statement**](#unless-statement)
+        - [**If modifier**](#if-modifier)
+        - [**Unless modifier**](#unless-modifier)
+        - [**Ternary Operator**](#ternary-operator-1)
+      - [4.7 - Loops](#47---loops)
+        - [**While Loop**](#while-loop)
+        - [**Until Loop**](#until-loop)
+        - [**For Loop**](#for-loop)
+        - [**Each Loop**](#each-loop)
+        - [**Times Loop**](#times-loop)
+        - [**Begin/End Loop**](#beginend-loop)
+      - [4.8 - Methods](#48---methods)
+        - [**Method Declaration**](#method-declaration)
+        - [**Method Call**](#method-call)
+        - [**Method Arguments**](#method-arguments)
+        - [**Method Return Value**](#method-return-value)
+        - [**Method Scope**](#method-scope)
+        - [**Method Aliases**](#method-aliases)
+        - [**Method Chaining**](#method-chaining)
+        - [**Method Overloading**](#method-overloading)
+        - [**Method Overriding**](#method-overriding)
+        - [**Method Missing**](#method-missing)
+        - [**Method Access Control**](#method-access-control)
+        - [**Method Reflection**](#method-reflection)
+      - [4.9 - Classes](#49---classes)
 
 ## Documentation
 
@@ -276,6 +312,8 @@ In summary, Ruby's future looks promising, with concerted efforts to improve per
 
     This will display the version of Ruby that you have installed.
 
+---
+
 #### 2.2 - Linux
 
 - **Step 1: Install Ruby**
@@ -296,6 +334,8 @@ In summary, Ruby's future looks promising, with concerted efforts to improve per
 
     This will display the version of Ruby that you have installed.
 
+---
+
 #### 2.3 - Mac
 
 - **Step 1: Install Ruby**
@@ -315,6 +355,8 @@ In summary, Ruby's future looks promising, with concerted efforts to improve per
     ```
 
     This will display the version of Ruby that you have installed.
+
+---
 
 ### 3 - Ruby Basic Setup (after installation)
 
@@ -353,6 +395,8 @@ In summary, Ruby's future looks promising, with concerted efforts to improve per
   - **Extensions**
 
     Ruby Mine has a large number of extensions available. You can find a list of extensions on the [Ruby Mine Plugins](https://plugins.jetbrains.com/ruby) website.
+
+---
 
 #### 3.2 - Manage Ruby Gems
 
@@ -398,11 +442,14 @@ The use of gems is not limited to utilising existing libraries; developers are a
   
   Gems can be searched using the gem search command. For example, to search for the rails gem, you would run the following command:
 
-  ```bash
+  ``bash
   gem search rails
+
   ```
 
   Or you can search for gems using the [RubyGems](https://rubygems.org/) website.
+
+---
 
 #### 3.3 - Run Ruby Code
 
@@ -412,11 +459,13 @@ The use of gems is not limited to utilising existing libraries; developers are a
 
 - **Running Ruby Code on the Shell**
 
-    ```sh
-    ruby file_name.rb
-    ```
+  ```sh
+  ruby file_name.rb
+  ```
 
-### 4 - Ruby's Basic Syntax
+---
+
+### 4 - Ruby Basic Syntax
 
 #### 4.1 - Reserved Words
 
@@ -432,8 +481,8 @@ The following list shows the reserved words in Ruby. These reserved words may no
 | break    | false   | rescue  | when    |
 | case     | for     | retry   | while   |
 | class    | if      | return  | while   |
-| def      | in      | self    | **FILE**|
-| defined? | module  | super   | **LINE**|
+| def      | in      | self    | \_FILE\_|
+| defined? | module  | super   | \_LINE\_|
 
 ---
 
@@ -977,3 +1026,589 @@ Regular expressions are used for pattern matching. They can be represented using
   Heres the list of all the methods available for regular expressions: [Regexp Methods](https://ruby-doc.org/core-3.0.2/Regexp.html) or [Regexp File](./Data%20Types/Regexp.md)
 
 #### 4.5 - Operators
+
+##### **Arithmetic Operators**
+
+Arithmetic operators are used to perform mathematical operations on numbers. They can be used with integers and floats.
+
+| Operator | Description | Example |
+| -------- | ----------- | ------- |
+| +        | Addition    | `5 + 2` will give 7 |
+| -        | Subtraction | `5 - 2` will give 3 |
+| *        | Multiplication | `5 * 2` will give 10 |
+| /        | Division | `5 / 2` will give 2  |
+| %        | Modulus | `5 % 2` will give 1 |
+| **       | Exponentiation | `5 ** 2` will give 25 |
+
+##### **Assignment Operators**
+
+Assignment operators are used to assign values to variables. They can be used with any data type. The following table shows the assignment operators available in Ruby.
+
+| Operator | Description | Example |
+| -------- | ----------- | ------- |
+| =        | Assigns a value to a variable | `variable = value` |
+| +=       | Adds a value to a variable and assigns the result to the variable | `variable += value` |
+| -=       | Subtracts a value from a variable and assigns the result to the variable | `variable -= value` |
+| *=       | Multiplies a variable by a value and assigns the result to the variable | `variable *= value` |
+| /=       | Divides a variable by a value and assigns the result to the variable | `variable /= value` |
+| %=       | Divides a variable by a value and assigns the remainder to the variable | `variable %= value` |
+| **=      | Raises a variable to a power and assigns the result to the variable | `variable **= value` |
+
+##### **Comparison Operators**
+
+Comparison operators are used to compare two values. They return a boolean value indicating whether the comparison is true or false. The following table shows the comparison operators available in Ruby.
+
+| Operator | Description | Example |
+| -------- | ----------- | ------- |
+| ==       | Returns true if the values are equal, false otherwise | `5 == 5` will give true |
+| !=       | Returns true if the values are not equal, false otherwise | `5 != 5` will give false |
+| >        | Returns true if the left value is greater than the right value, false otherwise | `5 > 2` will give true |
+| <        | Returns true if the left value is less than the right value, false otherwise | `5 < 2` will give false |
+| >=       | Returns true if the left value is greater than or equal to the right value, false otherwise | `5 >= 2` will give true |
+| <=       | Returns true if the left value is less than or equal to the right value, false otherwise | `5 <= 2` will give false |
+| <=>     | Returns -1 if the left value is less than the right value, 0 if they are equal, and 1 if the left value is greater than the right value | `5 <=> 2` will give 1 |
+| ===      | Returns true if the values are equal, false otherwise | `5 === 5` will give true |
+| .eql?    | Returns true if the values are equal and of the same type, false otherwise | `5.eql?(5)` will give true |
+| equal?   | Returns true if the values are the same object, false otherwise | `5.equal?(5)` will give false |
+
+##### **Logical Operators**
+
+Logical operators are used to combine boolean values. They return a boolean value indicating whether the combination is true or false. The following table shows the logical operators available in Ruby.
+
+| Operator | Description | Example |
+| -------- | ----------- | ------- |
+| !        | Returns the opposite boolean value | `!true` will give false |
+| !=       | Returns true if the boolean values are not equal, false otherwise | `true != false` will give true |
+| &&       | Returns true if both boolean values are true, false otherwise | `true && false` will give false |
+| \|\|     | Returns true if either boolean value is true, false otherwise | `true \|\| false` will give true |
+| and     | Returns true if both boolean values are true, false otherwise | `true and false` will give false |
+| or      | Returns true if either boolean value is true, false otherwise | `true or false` will give true |
+
+##### **Parallel Assignment**
+
+Parallel assignment is a way to assign multiple values to multiple variables at the same time. It is done by using the `=` operator.
+
+```ruby
+# Parallel assignment
+a, b = 1, 2
+```
+
+##### **Ternary Operator**
+
+The ternary operator is a way to assign a value to a variable based on a condition. It is done by using the `?` and `:` operators.
+
+```ruby
+# Ternary operator
+variable = condition ? value1 : value2
+```
+
+##### **Bitwise Operators**
+
+Bitwise operators are used to perform operations on binary numbers. They can be used with integers. The following table shows the bitwise operators available in Ruby.
+
+| Operator | Description | Example |
+| -------- | ----------- | ------- |
+| &        | Performs a bitwise AND operation | `5 & 2` will give 0 |
+| \|       | Performs a bitwise OR operation | `5 \| 2` will give 7 |
+| ^        | Performs a bitwise XOR operation | `5 ^ 2` will give 7 |
+| ~        | Performs a bitwise NOT operation | `~5` will give -6 |
+| <<       | Performs a bitwise left shift operation | `5 << 2` will give 20 |
+| >>       | Performs a bitwise right shift operation | `5 >> 2` will give 1 |
+
+##### **Defined? Operator**
+
+The defined? operator is used to check if a variable is defined. It returns a boolean value indicating whether the variable is defined or not.
+
+```ruby
+# Defined? operator
+defined? variable
+```
+
+##### **Range Operators**
+
+Range operators are used to create ranges. They can be used with integers and floats. The following table shows the range operators available in Ruby.
+
+| Operator | Description | Example |
+| -------- | ----------- | ------- |
+| ..       | Creates an inclusive range | `(1..5)` will give 1, 2, 3, 4, 5 |
+| ...      | Creates an exclusive range | `(1...5)` will give 1, 2, 3, 4 |
+
+##### **Operators Precedence**
+
+There are several other operators available in Ruby. The following table shows some of them.
+
+| Operator | Description | Example |
+| -------- | ----------- | ------- |
+| ::       | Scope resolution operator | `Math::PI` will give 3.141592653589793 |
+| [][]=   | Element reference, element set | `array[0] = 1` |
+| **=      | Exponentiation assignment | `variable **= value` |
+| ! ~ +@ -@  | Not, complement, unary plus and minus | `!true` will give false |
+| * / %    | Multiplication, division, modulus | `5 * 2` will give 10 |
+| + -      | Addition, subtraction | `5 + 2` will give 7 |
+| << >>    | Bitwise left shift, bitwise right shift | `5 << 2` will give 20 |
+| &        | Bitwise AND | `5 & 2` will give 0 |
+| ^ \|     | Bitwise XOR, bitwise OR | `5 ^ 2` will give 7 |
+| > >= < <= | Comparison | `5 > 2` will give true |
+| <=> == != === =~ !~ | Equality and pattern matching | `5 == 5` will give true |
+| &&       | Logical AND | `true && false` will give false |
+| \|\|     | Logical OR | `true \|\| false` will give true |
+| .. ...   | Range creation | `(1..5)` will give 1, 2, 3, 4, 5 |
+| ? :      | Ternary operator | `variable = condition ? value1 : value2` |
+| = %= { /= -= += |= &= >>= <<= *= &&= ||= **= | Assignment | `variable = value` |
+| defined? | Check if a variable is defined | `defined? variable` |
+| not      | Logical negation | `not true` will give false |
+| or and   | Logical composition | `true or false` will give true |
+
+#### 4.6 - Conditionals
+
+##### **If Statement**
+
+The if statement is used to execute a block of code if a condition is true. It is done by using the `if` keyword.
+
+```ruby
+# If statement
+if condition
+  # Code to be executed if condition is true
+end
+```
+
+The if statement can also be used with the `else` keyword to execute a block of code if the condition is false.
+
+```ruby
+# If statement with else
+if condition || condition
+  # Code to be executed if condition is true
+else
+  # Code to be executed if condition is false
+end
+```
+
+The if statement can also be used with the `elsif` keyword to execute a block of code if the condition is false and another condition is true.
+
+```ruby
+# If statement with elsif
+if condition1 && condition2
+  # Code to be executed if condition1 is true
+elsif condition2
+  # Code to be executed if condition2 is true
+end
+```
+
+The if statement can also be used with the `unless` keyword to execute a block of code if the condition is false.
+
+```ruby
+# If statement with unless
+unless condition 
+  # Code to be executed if condition is false
+end
+```
+
+The if statement can also be used with the `case` keyword to execute a block of code if the condition is true.
+
+```ruby
+# If statement with case
+case condition
+when condition1
+  # Code to be executed if condition1 is true
+when condition2
+  # Code to be executed if condition2 is true
+end
+```
+
+##### **Unless Statement**
+
+The unless statement is used to execute a block of code if a condition is false. It is done by using the `unless` keyword.
+
+```ruby
+# Unless statement
+unless condition
+  # Code to be executed if condition is false
+end
+```
+
+The unless statement can also be used with the `else` keyword to execute a block of code if the condition is true.
+
+```ruby
+# Unless statement with else
+unless condition
+  # Code to be executed if condition is false
+else
+  # Code to be executed if condition is true
+end
+```
+
+The unless statement can also be used with the `elsif` keyword to execute a block of code if the condition is true and another condition is false.
+
+```ruby
+# Unless statement with elsif
+unless condition1
+  # Code to be executed if condition1 is false
+elsif condition2
+  # Code to be executed if condition2 is true
+end
+```
+
+##### **If modifier**
+
+The if modifier is used to execute a block of code if a condition is true. It is done by using the `if` keyword.
+
+```ruby
+# If modifier
+code if condition
+```
+
+The if modifier can also be used with the `unless` keyword to execute a block of code if a condition is false.
+
+##### **Unless modifier**
+
+The unless modifier is used to execute a block of code if a condition is false. It is done by using the `unless` keyword.
+
+```ruby
+# Unless modifier
+code unless condition
+```
+
+##### **Ternary Operator**
+
+The ternary operator is a way to assign a value to a variable based on a condition. It is done by using the `?` and `:` operators.
+
+```ruby
+# Ternary operator
+variable = condition ? value1 : value2
+```
+
+#### 4.7 - Loops
+
+##### **While Loop**
+
+The while loop is used to execute a block of code while a condition is true. It is done by using the `while` keyword.
+
+```ruby
+# While loop
+while condition
+  # Code to be executed while condition is true
+end
+```
+
+- **While Modifier**
+
+  The while modifier is used to execute a block of code while a condition is true. It is done by using the `while` keyword.
+
+  ```ruby
+  # While modifier
+  code while condition
+  ```
+
+##### **Until Loop**
+
+The until loop is used to execute a block of code until a condition is true. It is done by using the `until` keyword.
+
+```ruby
+# Until loop
+until condition
+  # Code to be executed until condition is true
+end
+```
+
+- **Until Modifier**
+
+  The until modifier is used to execute a block of code until a condition is true. It is done by using the `until` keyword.
+
+  ```ruby
+  # Until modifier
+  code until condition
+  ```
+
+##### **For Loop**
+
+The for loop is used to iterate over a collection of items. It is done by using the `for` keyword.
+
+```ruby
+# For loop
+for item in collection
+  # Code to be executed for each item in collection
+end
+```
+
+- **For Modifier**
+
+  The for modifier is used to iterate over a collection of items. It is done by using the `for` keyword.
+
+  ```ruby
+  # For modifier
+  code for item in collection
+  ```
+
+- **break Statement**
+
+  The break statement is used to exit a loop. It is done by using the `break` keyword.
+
+  ```ruby
+  # break statement
+  for item in collection
+    break if condition
+    # Code to be executed for each item in collection
+  end
+  ```
+
+- **next Statement**
+
+  The next statement is used to skip to the next iteration of a loop. It is done by using the `next` keyword.
+
+  ```ruby
+  # next statement
+  for item in collection
+    next if condition
+    # Code to be executed for each item in collection
+  end
+  ```
+
+- **redo Statement**
+
+  The redo statement is used to repeat the current iteration of a loop. It is done by using the `redo` keyword.
+
+  ```ruby
+  # redo statement
+  for item in collection
+    redo if condition
+    # Code to be executed for each item in collection
+  end
+  ```
+
+- **retry Statement**
+
+  The retry statement is used to repeat the current iteration of a loop. It is done by using the `retry` keyword.
+
+  ```ruby
+  # retry statement
+  for item in collection
+    retry if condition
+    # Code to be executed for each item in collection
+  end
+  ```
+
+##### **Each Loop**
+
+The each loop is used to iterate over a collection of items. It is done by using the `each` keyword.
+
+```ruby
+# Each loop
+collection.each do |item|
+  # Code to be executed for each item in collection
+end
+```
+
+- **Each Modifier**
+
+  The each modifier is used to iterate over a collection of items. It is done by using the `each` keyword.
+
+  ```ruby
+  # Each modifier
+  collection.each { |item| code }
+  ```
+
+##### **Times Loop**
+
+The times loop is used to execute a block of code a specified number of times. It is done by using the `times` keyword.
+
+```ruby
+# Times loop
+number.times do
+  # Code to be executed number of times
+end
+```
+
+- **Times Modifier**
+
+  The times modifier is used to execute a block of code a specified number of times. It is done by using the `times` keyword.
+
+  ```ruby
+  # Times modifier
+  number.times { code }
+  ```
+
+##### **Begin/End Loop**
+
+The begin/end loop is used to execute a block of code until a condition is true. It is done by using the `begin` and `end` keywords.
+
+```ruby
+# Begin/End loop
+begin
+  # Code to be executed until condition is true
+end while condition
+```
+
+#### 4.8 - Methods
+
+##### **Method Declaration**
+
+Methods are declared using the `def` keyword. The method name is on the left side of the `def` keyword, and the method body is on the right side of the `def` keyword.
+
+```ruby
+# Method declaration
+def method_name
+  # Method body
+end
+```
+
+##### **Method Call**
+
+Methods are called using the `.` operator. The method name is on the left side of the `.` operator, and the method arguments are on the right side of the `.` operator.
+
+```ruby
+# Method call
+object.method_name
+```
+
+##### **Method Arguments**
+
+Methods can take arguments. Arguments are passed to the method using the `()` operator. The arguments are separated by commas.
+
+```ruby
+# Method arguments
+def method_name(argument1, argument2)
+  # Method body
+end
+```
+
+##### **Method Return Value**
+
+Methods can return a value. The return value is the last expression evaluated in the method body.
+
+```ruby
+# Method return value
+def method_name
+  # Method body
+  return value
+end
+```
+
+##### **Method Scope**
+
+Methods have a scope that determines where they can be accessed. There are three types of method scope: global, local, and instance.
+
+- **Global Methods**
+
+  Global methods are accessible from anywhere in the program. They are declared using the `$` character.
+
+  ```ruby
+  # Global method
+  $method_name
+  ```
+
+- **Local Methods**
+
+  Local methods are only accessible from within the block in which they are declared. They are declared using the `local` keyword.
+
+  ```ruby
+  # Local method
+  local method_name
+  ```
+
+- **Instance Methods**
+
+  Instance methods are accessible from anywhere within the class in which they are declared. They are declared using the `@` character.
+
+  ```ruby
+  # Instance method
+  @method_name
+  ```
+
+##### **Method Aliases**
+
+Methods can be aliased using the `alias` keyword. The alias name is on the left side of the `alias` keyword, and the method name is on the right side of the `alias` keyword.
+
+```ruby
+# Method alias
+alias alias_name method_name
+```
+
+##### **Method Chaining**
+
+Methods can be chained together using the `.` operator. The method name is on the left side of the `.` operator, and the method arguments are on the right side of the `.` operator.
+
+```ruby
+# Method chaining
+object.method_name.name_method
+```
+
+Example:
+
+```ruby
+# Method chaining example
+"Hello".upcase.reverse
+```
+
+##### **Method Overloading**
+
+Methods can be overloaded using the `def` keyword. The method name is on the left side of the `def` keyword, and the method arguments are on the right side of the `def` keyword.
+
+```ruby
+# Method overloading
+def method_name(argument1, argument2)
+  # Method body
+end
+
+def method_name(argument1, argument2, argument3)
+  # Method body
+end
+```
+
+##### **Method Overriding**
+
+Methods can be overridden using the `def` keyword. The method name is on the left side of the `def` keyword, and the method arguments are on the right side of the `def` keyword.
+
+```ruby
+# Method overriding
+def method_name(argument1, argument2)
+  # Method body
+end
+
+def method_name(argument1, argument2, argument3)
+  # Method body
+end
+```
+
+##### **Method Missing**
+
+Methods can be missing using the `method_missing` keyword. The method name is on the left side of the `method_missing` keyword, and the method arguments are on the right side of the `method_missing` keyword.
+
+```ruby
+# Method missing
+def method_missing(method_name, *arguments)
+  # Method body
+end
+```
+
+##### **Method Access Control**
+
+Methods can be accessed using the `public`, `protected`, and `private` keywords. The method name is on the left side of the `public`, `protected`, and `private` keywords, and the method arguments are on the right side of the `public`, `protected`, and `private` keywords.
+
+```ruby
+# Method access control
+public method_name
+protected method_name
+private method_name
+```
+
+
+##### **Method Reflection**
+
+Methods can be reflected using the `method` keyword. The method name is on the left side of the `method` keyword, and the method arguments are on the right side of the `method` keyword.
+
+```ruby
+
+# Method reflection
+method(:method_name)
+```
+
+Exanple:
+
+```ruby
+# Method reflection example
+puts "Hello".method(:upcase).call() # HELLO
+```
+
+#### 4.9 - Classes
+
+

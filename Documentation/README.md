@@ -1,5 +1,10 @@
 # Ruby_FullCourse
 
+This repository contains the documentation of the Ruby Full Course. 
+
+Made with :heart: by [**_Hugo Correia_**](https://github.com/MrLoydHD), [**_Duarte Cruz_**](https://github.com/DuarteCruz31) 
+                  and [**_André Oliveira_**](https://github.com/andreaoliveira9)
+
 ## Table of Contents
 
 - [Ruby\_FullCourse](#ruby_fullcourse)
@@ -12,7 +17,7 @@
       - [1.4 - Ruby's Weaknesses](#14---rubys-weaknesses)
       - [1.5 - Memory Management and Garbage Collection](#15---memory-management-and-garbage-collection)
       - [1.6 - Ruby's Paradigms](#16---rubys-paradigms)
-      - [1.7 - Ruby's Paralellism and Concurrency](#17---rubys-paralellism-and-concurrency)
+      - [1.7 - Ruby's Parallelism and Concurrency](#17---rubys-parallelism-and-concurrency)
       - [1.8 - Ruby's Future](#18---rubys-future)
     - [2 - Ruby's Installation](#2---rubys-installation)
       - [2.1 - Windows](#21---windows)
@@ -105,8 +110,40 @@
         - [**Module Inheritance**](#module-inheritance)
         - [**Module Hooks**](#module-hooks)
       - [4.12 - Date and Time](#412---date-and-time)
+        - [**Date**](#date)
+        - [**Time**](#time)
       - [4.13 - File I/O](#413---file-io)
+        - [**Puts Statement**](#puts-statement)
+        - [**Print Statement**](#print-statement)
+        - [**Get Statement**](#get-statement)
+        - [**Putc Statement**](#putc-statement)
+        - [**Opening and Closing Files**](#opening-and-closing-files)
+        - [**Renaming and Deleting Files**](#renaming-and-deleting-files)
+        - [**File Modes and Ownership**](#file-modes-and-ownership)
+        - [**Other File Methods**](#other-file-methods)
       - [4.14 - Exceptions](#414---exceptions)
+        - [**Exception Handling**](#exception-handling)
+        - [**Retry Statement**](#retry-statement)
+        - [**Raise Statement**](#raise-statement)
+        - [Ensure Statement](#ensure-statement)
+        - [**Else Statement**](#else-statement)
+        - [**Catch and Throw**](#catch-and-throw)
+        - [**Exception Class Methods**](#exception-class-methods)
+      - [4.15 - Object Oriented Programming](#415---object-oriented-programming)
+        - [**Object Oriented Programming**](#object-oriented-programming)
+        - [**Classes**](#classes)
+        - [**Objects**](#objects)
+        - [**Methods**](#methods)
+        - [**Instance Variables**](#instance-variables)
+        - [**Class Variables**](#class-variables)
+        - [**Class Methods**](#class-methods)
+        - [**Inheritance**](#inheritance)
+        - [**Polymorphism**](#polymorphism)
+        - [**Mixins**](#mixins)
+      - [4.16 - Regular Expressions](#416---regular-expressions)
+        - [**Regular Expressions**](#regular-expressions)
+        - [**Regular Expressions Methods**](#regular-expressions-methods)
+        - [**Regular Expressions Patterns**](#regular-expressions-patterns)
 
 ## Documentation
 
@@ -374,6 +411,8 @@ In summary, Ruby's future looks promising, with concerted efforts to improve per
 - **Step 1: Install Ruby**
 
     The first step is to install Ruby. You can install Ruby by running the following command:
+
+    **_(Normally, Ruby is already installed on Mac)_**
 
     ```sh
     brew install ruby
@@ -2463,25 +2502,752 @@ All the method hooks can be applied here. Check the [Method Hooks](#method-hooks
 
 #### 4.12 - Date and Time
 
+##### **Date**
+
+The Date class is used to represent dates. It is done by using the `Date` keyword.
+
+```ruby
+# Date
+require 'date'
+
+Date
+```
+
+Example:
+
+```ruby
+require 'date'
+# Date example
+Date.today # 2021-10-20
+```
+
+##### **Time**
+
+The Time class represents dates and times in Ruby. It is a thin layer over the system date and time functionality provided by the operating system. This class may be unable on your system to represent dates before 1970 or after 2038.
+
+```ruby
+# Time
+Time.new
+```
+
+Example:
+
+```ruby
+# Time example
+time = Time.new
+
+puts time.inspect # Mon Jun 02 12:03:08 -0700 2008
+```
+
+- **Componentes of a Date & Time**
+
+  The Time class has several components that can be accessed using the `.` operator. The following table shows the components of a Time object.
+
+  Example for the following table:
+
+  ```ruby
+  # Time example
+  time = Time.new
+
+  puts time.inspect # Mon Jun 02 12:03:08 -0700 2008
+  ```
+
+  | Component | Description | Example |
+  | --------- | ----------- | ------- |
+  | year | The year | `time.year` will give 2008 |
+  | month | The month | `time.month` will give 6 |
+  | day | The day | `time.day` will give 2 |
+  | wday | The day of the week | `time.wday` will give 1 (Sunday - 0, Monday - 1, ..7 )|
+  | yday | The day of the year | `time.yday` will give 154 |
+  | hour | The hour | `time.hour` will give 12 |
+  | min | The minute | `time.min` will give 3 |
+  | sec | The second | `time.sec` will give 8 |
+  | usec | The microsecond | `time.usec` will give 247476 |
+  | zone | The time zone | `time.zone` will give "UTC" (UTC is the abbreviation for Coordinated Universal Time) |
+
+- **Time.utc & Time.gm & Time.local Functions**
+
+  The Time class has several functions that can be used to create Time objects. The following table shows the functions of the Time class.
+
+  | Function | Description | Example |
+  | -------- | ----------- | ------- |
+  | Time.utc | Creates a Time object in UTC time zone | `Time.utc(2008, 6, 2, 12, 3, 8)` will give 2008-06-02 12:03:08 UTC |
+  | Time.gm | Creates a Time object in UTC time zone | `Time.gm(2008, 6, 2, 12, 3, 8)` will give 2008-06-02 12:03:08 UTC |
+  | Time.local | Creates a Time object in local time zone | `Time.local(2008, 6, 2, 12, 3, 8)` will give 2008-06-02 12:03:08 +0100 |
+
+  Following is the example to get all the components in an array in the following format
+
+  ```ruby
+  [ sec, min, hour, day, month, year, wday, yday, isdst, zone ]
+  ```
+
+- **Timezones and Daylight Savings Time**
+
+  You can use a Time object to get all the information related to Timezones and daylight savings as follows
+
+  | Function | Description | Example |
+  | -------- | ----------- | ------- |
+  | time.utc? | Returns true if time represents a time in UTC (GMT) | `time.utc?` will give false |
+  | time.zone | Returns the name of the time zone used for time | `time.zone` will give "UTC" |
+  | time.isdst | Returns true if time occurs during Daylight Saving Time in its time zone | `time.isdst` will give false |
+  | time.utc_offset | Returns the offset in seconds between the timezone of time and UTC | `time.utc_offset` will give 0 |
+  | time.localtime | Returns a new Time object representing time in local time zone | `time.localtime` will give Mon Jun 02 12:03:08 +0100 2008 |
+  | time.gmtime | Returns a new Time object representing time in UTC | `time.gmtime` will give Mon Jun 02 11:03:08 UTC 2008 |
+  | time.getlocal | Returns a new Time object representing time in local time zone | `time.getlocal` will give Mon Jun 02 12:03:08 +0100 2008 |
+  | time.getutc | Returns a new Time object representing time in UTC | `time.getutc` will give Mon Jun 02 11:03:08 UTC 2008 |
+
+- **Time and Date Formatting**
+
+  You can use a Time object to get all the information related to Timezones and daylight savings as follows
+
+  | Function | Description | Example |
+  | -------- | ----------- | ------- |
+  | time.to_s | Returns a string representing time | `time.to_s` will give "Mon Jun 02 12:03:08 +0100 2008" |
+  | time.ctime | Returns a string representing time | `time.ctime` will give "Mon Jun 02 12:03:08 +0100 2008" |
+  | time.localtime | Returns a string representing time | `time.localtime` will give "Mon Jun 02 12:03:08 +0100 2008" |
+  | time.strftime | Formats time according to the directives in the given format string | `time.strftime("%Y-%m-%d %H:%M:%S")` will give "2008-06-02 12:03:08" |
+
+- **Time Formatting Directives**
+
+  The following table shows the formatting directives that can be used with the `strftime` function.
+
+  | Directive | Description | Example |
+  | --------- | ----------- | ------- |
+  | %a | The abbreviated weekday name ("Sun") | `time.strftime("%a")` will give "Mon" |
+  | %A | The full weekday name ("Sunday") | `time.strftime("%A")` will give "Monday" |
+  | %b | The abbreviated month name ("Jan") | `time.strftime("%b")` will give "Jun" |
+  | %B | The full month name ("January") | `time.strftime("%B")` will give "June" |
+  | %c | The preferred local date and time representation | `time.strftime("%c")` will give "Mon Jun 02 12:03:08 2008" |
+  | %d | Day of the month (01..31) | `time.strftime("%d")` will give "02" |
+  | %H | Hour of the day, 24-hour clock (00..23) | `time.strftime("%H")` will give "12" |
+  | %I | Hour of the day, 12-hour clock (01..12) | `time.strftime("%I")` will give "12" |
+  | %j | Day of the year (001..366) | `time.strftime("%j")` will give "154" |
+  | %m | Month of the year (01..12) | `time.strftime("%m")` will give "06" |
+  | %M | Minute of the hour (00..59) | `time.strftime("%M")` will give "03" |
+  | %p | Meridian indicator ("AM" or "PM") | `time.strftime("%p")` will give "PM" |
+  | %S | Second of the minute (00..60) | `time.strftime("%S")` will give "08" |
+  | %U | Week number of the current year, starting with the first Sunday as the first day of the first week (00..53) | `time.strftime("%U")` will give "22" |
+  | %W | Week number of the current year, starting with the first Monday as the first day of the first week (00..53) | `time.strftime("%W")` will give "22" |
+  | %w | Day of the week (Sunday is 0, 0..6) | `time.strftime("%w")` will give "1" |
+  | %x | Preferred representation for the date alone, no time | `time.strftime("%x")` will give "06/02/08" |
+  | %X | Preferred representation for the time alone, no date | `time.strftime("%X")` will give "12:03:08" |
+  | %y | Year without a century (00..99) | `time.strftime("%y")` will give "08" |
+  | %Y | Year with century | `time.strftime("%Y")` will give "2008" |
+  | %Z | Time zone name | `time.strftime("%Z")` will give "UTC" |
+  | %% | Literal "%" character | `time.strftime("%%")` will give "%" |
+
+- **Time Arithmetic**
+
+  You can perform simple arithmetic with time as follows
+
+  ```ruby
+  # Time arithmetic
+  now = Time.now          # Current time
+
+  past = now - 10         # 10 seconds ago. Time - number => Time
+
+  future = now + 10       # 10 seconds from now Time + number => Time
+
+  diff = future - now     # => 10  Time - Time => number of seconds
+
+  now > future            # => false  Time > Time => true or false
+
+  now < future            # => true  Time < Time => true or false
+
+  puts diff              # => 20.0
+  ```
+
 #### 4.13 - File I/O
+
+Ruby provides a whole set of I/O-related methods implemented in the Kernel module. All the I/O methods are derived from the class IO.
+
+The class IO provides all the basic methods, such as read, write, gets, puts, readline, getc, and printf.
+
+This chapter will cover all the basic I/O functions available in Ruby. For more functions, please refer to Ruby Class IO.
+
+##### **Puts Statement**
+
+The puts statement is used to print on the screen. It adds a new line character at the end of the output.
+
+Example:
+
+```ruby
+# Puts statement example
+puts "Hello" # Hello
+```
+
+##### **Print Statement**
+
+The print statement is used to print on the screen. It does not add a new line character at the end of the output.
+
+Example:
+
+```ruby
+# Print statement example
+print "Hello"
+print " Daniel"
+
+# Output
+Hello Daniel
+```
+
+##### **Get Statement**
+
+The get statement is used to get input from the user. It does not add a new line character at the end of the output.
+
+Example:
+
+```ruby
+# Get statement example
+puts "Enter your name: "
+name = gets
+
+puts "Hello #{name}, how are you?"
+
+# Output
+Enter your name:
+Daniel
+Hello Daniel
+, how are you?
+```
+
+- **Chomp Method**
+
+  The chomp method is used to remove the new line character from the end of the string.
+
+  Example:
+
+  ```ruby
+  # Chomp method example
+  puts "Enter your name: "
+  name = gets.chomp
+
+  puts "Hello #{name}, how are you?"
+
+  # Output
+  Enter your name:
+  Daniel
+  Hello Daniel , how are you?
+  ```
+
+##### **Putc Statement**
+
+Unlike the puts statement, which outputs the entire string onto the screen, the putc statement can be used to output one character at a time.
+
+Example:
+
+```ruby
+# Putc statement example
+putc "Hello" # H
+```
+
+##### **Opening and Closing Files**
+
+Ruby provides a whole set of I/O-related methods implemented in the Kernel module. All the I/O methods are derived from the class IO.
+
+The class IO provides all the basic methods, such as read, write, gets, puts, readline, getc, and printf.
+
+- **Opening Files**
+
+  You can open a file using the `File.new` method. The `File.new` method takes two arguments: the name of the file and the mode in which you want to open the file.
+
+  The following table shows the different modes in which you can open a file.
+
+  | Mode | Description |
+  | ---- | ----------- |
+  | r | Read-only mode. The file pointer is placed at the beginning of the file. This is the default mode. |
+  | r+ | Read-write mode. The file pointer will be at the beginning of the file. |
+  | w | Write-only mode. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing. |
+  | w+ | Read-write mode. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing. |
+  | a | Write-only mode. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing. |
+  | a+ | Read and write mode. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing. |
+
+  Example:
+
+  ```ruby
+  # Opening files example
+  file = File.new("filename", "mode")
+
+  # or
+
+  file = File.new("filename", "mode") if File::exists?( "filename" )
+
+  # or
+
+  File.open("filename", "mode") do |file|
+    # ...
+  end
+  ```
+
+- **Sysread and Syswrite Method**
+
+  The sysread and syswrite methods are used to read and write data from and to a file. They are similar to the read and write methods, but they do not buffer the data.
+
+  Example:
+
+  ```ruby
+  # Sysread and syswrite method example
+  file = File.new("filename", "mode")
+
+  if file
+    content = file.sysread(20) # First 20 characters of the file, the file pointer is moved to the 21st character
+    puts content # Hello, how are you?
+    file.syswrite("Im fine, thank you!") # Write to the file from the 21st character
+
+    content = file.sysread(20) # Next 20 characters of the file
+    puts content # Im fine, thank you!
+  else
+    puts "Unable to open file!"
+  end
+
+  # Output
+  Hello, how are you?
+  ```
+
+- **each_byte Method**
+
+  The each_byte method is used to read a file byte by byte. It returns an enumerator object.
+
+  Example:
+
+  ```ruby
+  # Each_byte method example
+  aFile = File.new("input.txt", "r+")
+  if aFile
+    aFile.syswrite("ABCDEF")
+    aFile.each_byte {|ch| putc ch; putc ?. }
+  else
+    puts "Unable to open file!"
+  end
+
+  # Output
+  A.B.C.D.E.F.
+  ```
+
+- **IO.readlines Method**
+
+  The IO.readlines method is used to read a file line by line. It returns an array of lines.
+
+  Example:
+
+  ```ruby
+  # IO.readlines method example
+  arr = IO.readlines("input.txt")
+  puts arr[0] # This is line one
+  puts arr[1] # This is line two
+
+  # Output
+  This is line one
+  This is line two
+  ```
+
+- **IO.foreach Method**
+
+  The IO.foreach method is used to read a file line by line. It returns an enumerator object.
+
+  Example:
+
+  ```ruby
+  # IO.foreach method example
+  IO.foreach("input.txt"){|block| puts block}
+
+  # Output
+  This is line one
+  This is line two
+  ```
+
+##### **Renaming and Deleting Files**
+
+- **Rename Method**
+
+  The rename method is used to rename a file. It takes two arguments: the old name of the file and the new name of the file.
+
+  Example:
+
+  ```ruby
+  # Rename method example
+  File.rename( "test1.txt", "test2.txt" )
+  ```
+
+- **Delete Method**
+
+  The delete method is used to delete a file. It takes one argument: the name of the file.
+
+  Example:
+
+  ```ruby
+  # Delete method example
+  File.delete("test2.txt")
+  ```
+
+##### **File Modes and Ownership**
+
+The following table shows the different modes in which you can open a file.
+
+| Mode | Description |
+| ---- | ----------- |
+| r | Read-only mode. The file pointer is placed at the beginning of the file. This is the default mode. |
+| r+ | Read-write mode. The file pointer will be at the beginning of the file. |
+| w | Write-only mode. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing. |
+| w+ | Read-write mode. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing. |
+| a | Write-only mode. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing. |
+| a+ | Read and write mode. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing. |
+
+- **File Ownership**
+
+  The File class provides several methods that can be used to get information about the owner of a file. The following table shows the methods that can be used to get information about the owner of a file.
+
+  | Method | Description |
+  | ------ | ----------- |
+  | File.owned? | Returns true if the named file exists and the effective used id of the calling process is the owner of the file. |
+  | File.grpowned? | Returns true if the named file exists and the effective group id of the calling process is the owner of the file. |
+  | File.owned? | Returns true if the named file exists and the effective used id of the calling process is the owner of the file. |
+  | File.owned? | Returns true if the named file exists and the effective used id of the calling process is the owner of the file. |
+  | File.chmod | Changes permission bits on the named file to the bit pattern represented by mode_int. |
+
+  Example
+
+  ```ruby
+  # File ownership example
+  File.chmod(0755, "test.txt")
+  ```
+
+##### **Other File Methods**
+
+Check the [Ruby Class IO](https://www.tutorialspoint.com/ruby/ruby_input_output.htm) for more information.
 
 #### 4.14 - Exceptions
 
+##### **Exception Handling**
+
+Exception handling is used to handle errors that occur during the execution of a program. It is done by using the `begin`, `rescue`, and `end` keywords.
+
+```ruby
+# Exception handling
+begin
+  # Code that might raise an exception
+rescue
+  # Code that will execute when an exception is raised
+else
+  # Code that will execute if no exception is raised
+ensure
+  # Code that will always execute
+end
+```
+
+Everything from begin to rescue is protected. If an exception occurs during the execution of this block of code, control is passed to the block between rescue and end.
+
+For each rescue clause in the begin block, Ruby compares the raised Exception against each of the parameters in turn. The match will succeed if the exception named in the rescue clause is the same as the type of the currently thrown exception, or is a superclass of that exception.
+
+Example
+
+```ruby
+#!/usr/bin/ruby
+
+begin
+   file = open("/unexistant_file")
+   if file
+      puts "File opened successfully"
+   end
+rescue
+      file = STDIN
+end
+print file, "==", STDIN, "\n"
+
+# Output
+# #<IO:0x401b3944>==#<IO:0x401b3944>
+```
+
+##### **Retry Statement**
+
+The retry statement is used to repeat the execution of the begin block.
+
+```ruby
+# Retry statement
+begin
+  # Code that might raise an exception
+rescue
+  # Code that will execute when an exception is raised
+  retry # This will cause the program to repeat the begin block
+end
+```
+
+Example
+
+```ruby
+begin
+   file = open("/unexistant_file")
+   if file
+      puts "File opened successfully"
+   end
+rescue
+   fname = "existant_file"
+   retry
+end
+
+# Output
+File opened successfully # existant_file
+```
+
+The following is the flow of the process
+
+- An exception occurred at open.
+- Went to rescue. fname was re-assigned.
+- By retry went to the beginning of the begin.
+- This time file opens successfully.
+- Continued the essential process.
+
+**_NOTE_** − Notice that if the file of re-substituted name does not exist this example code retries infinitely. Be careful if you use retry for an exception process.
+
+##### **Raise Statement**
+
+The raise statement is used to raise an exception. It is done by using the `raise` keyword.
+
+```ruby
+# Raise statement
+raise
+
+# or 
+
+raise "Error Message"
+
+# or
+
+raise ExceptionType, "Error Message"
+
+# or
+
+raise ExceptionType, "Error Message" condition
+```
+
+The first form simply re-raises the current exception (or a RuntimeError if there is no current exception). This is used in exception handlers that need to intercept an exception before passing it on.
+
+The second form creates a new RuntimeError exception, setting its message to the given string. This exception is then raised up the call stack.
+
+The third form uses the first argument to create an exception and then sets the associated message to the second argument.
+
+The fourth form is similar to the third form but you can add any conditional statement like unless to raise an exception.
+
+Example
+
+```ruby
+#!/usr/bin/ruby
+
+begin
+   puts 'I am before the raise.'
+   raise 'An error has occurred.'
+   puts 'I am after the raise.'
+rescue
+    puts 'I am rescued.'
+end
+puts 'I am after the begin block.'
+
+# Output
+
+I am before the raise.
+I am rescued.
+I am after the begin block.
+```
+
+##### Ensure Statement
+
+Sometimes, you need to guarantee that some processing is done at the end of a block of code, regardless of whether an exception was raised. For example, you may have a file open on entry to the block and you need to make sure it gets closed as the block exits.
+
+The ensure clause does just this. ensure goes after the last rescue clause and contains a chunk of code that will always be executed as the block terminates. It doesn't matter if the block exits normally, if it raises and rescues an exception, or if it is terminated by an uncaught exception, the ensure block will get run.
+
+```ruby
+begin 
+   #.. process 
+   #..raise exception
+rescue 
+   #.. handle error 
+ensure 
+   #.. finally ensure execution
+   #.. This will always execute.
+end
+```
+
+Example
+
+```ruby
+begin
+   raise 'A test exception.'
+rescue Exception => e
+   puts e.message
+   puts e.backtrace.inspect
+ensure
+   puts "Ensuring execution"
+end
+
+# Output
+A test exception.
+["main.rb:2:in `block in <main>'", "main.rb:1:in `<main>'"]
+Ensuring execution
+```
+
+##### **Else Statement**
+
+If the else clause is present, it goes after the rescue clauses and before any ensure.
+
+The body of an else clause is executed only if no exceptions are raised by the main body of code.
+
+```ruby
+begin 
+   #.. process 
+   #..raise exception
+rescue 
+   # .. handle error
+else
+   #.. executes if there is no exception
+ensure 
+   #.. finally ensure execution
+   #.. This will always execute.
+end
+```
+
+Example
+
+```ruby
+begin
+   # raise 'A test exception.'
+   puts "I'm not raising exception"
+rescue Exception => e
+    puts e.message
+    puts e.backtrace.inspect
+else
+    puts "Congratulations-- no errors!"
+ensure
+    puts "Ensuring execution"
+end
+
+# Output
+I'm not raising exception
+Congratulations-- no errors!
+Ensuring execution
+```
+
+##### **Catch and Throw**
+
+Ruby provides the catch and throw keywords to handle situations where you want to terminate the execution of a block of code.
+
+The catch and throw keywords are used together. The catch keyword is used to define a block of code that can be terminated using the throw keyword.
+
+```ruby
+# Catch and throw
+catch :lablename do
+  # Code that might throw an exception
+  throw :lablename
+end
+```
+
+Example
+
+```ruby
+def promptAndGet(prompt)
+   print prompt
+   res = readline.chomp
+   throw :quitRequested if res == "!"
+   return res
+end
+
+catch :quitRequested do
+   name = promptAndGet("Name: ")
+   age = promptAndGet("Age: ")
+   sex = promptAndGet("Sex: ")
+   # ..
+   # process information
+end
+promptAndGet("Name:")
 
 
+# Output
 
+Name: Daniel
+Age: 12
+Sex: !
+Name: Daniela
+```
 
+##### **Exception Class Methods**
 
+Ruby's standard classes and modules raise exceptions. All the exception classes form a hierarchy, with the class Exception at the top. The next level contains seven different types
 
+- NoMemoryError
+- ScriptError
+- Interrupt
+- NoMemoryError
+- SignalException
+- StandardError
+- SystemExit
 
+There is one other exception at this level, Fatal, but the Ruby interpreter only uses this internally.
 
+Both ScriptError and StandardError have a number of subclasses, but we do not need to go into the details here. The important thing is that if we create our own exception classes, they need to be subclasses of either class Exception or one of its descendants.
 
+Example
 
+```ruby
+class FileSaveError < StandardError
+   attr_reader :reason
+   def initialize(reason)
+      @reason = reason
+   end
+end
+```
 
+Now, look at the following example, which will use this exception
 
+```ruby
+File.open(path, "w") do |file|
+begin
+   # Write out the data ...
+rescue
+   # Something went wrong!
+   raise FileSaveError.new($!)
+end
+end
 
+# Output
 
+FileSaveError: Permission denied - data.txt
+```
 
+The important line here is raise FileSaveError.new($!). We call raise to signal that an exception has occurred, passing it a new instance of FileSaveError, with the reason being that specific exception caused the writing of the data to fail.
 
+The $! global variable contains the last exception that was raised, so we pass this to the constructor of FileSaveError so that the exception object will contain all the information about the original exception.
 
+#### 4.15 - Object Oriented Programming
 
+##### **Object Oriented Programming**
+
+##### **Classes**
+
+- **Constructor**
+
+- **Getters and Setters**
+
+- **Access Control**
+
+##### **Objects**
+
+##### **Methods**
+
+##### **Instance Variables**
+
+##### **Class Variables**
+
+##### **Class Methods**
+
+##### **Inheritance**
+
+##### **Polymorphism**
+
+##### **Mixins**
+
+#### 4.16 - Regular Expressions
+
+##### **Regular Expressions**
+
+##### **Regular Expressions Methods**
+
+##### **Regular Expressions Patterns**

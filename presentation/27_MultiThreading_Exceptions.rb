@@ -10,7 +10,7 @@ def start_thread(index, attempt = 0, max_attempts = 3, threads_array)
 
       puts "Task #{index} completed successfully."
     rescue => e
-      puts "Caught exception in thread #{index}: #{e.message}"
+      puts "Caught exception in thread #{index}: #{e.messaage}"
 
       if attempt < max_attempts
         puts "Restarting task #{index}... Attempt #{attempt + 1}"

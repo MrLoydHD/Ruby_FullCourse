@@ -9,4 +9,4 @@ Examples:
 | /<.*>/             | Greedy match: Matches `<ruby>perl>` |
 | /<.*?>/            | Nongreedy match: Matches `<ruby>` in `<ruby>perl>` |
 
-Next: [Grouping With Parentheses](./GroupingWithParentheses.md) | Home: [Home](../README.md) | Back: [Repetition Cases](./RepetitionCases.md)
+Next: [Grouping With Parentheses](./GroupingWithParentheses.md) | Home: [Home](../../README.md) | Back: [Repetition Cases](./RepetitionCases.md)

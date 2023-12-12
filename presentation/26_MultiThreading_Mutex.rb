@@ -11,7 +11,7 @@ class Counter
   def increment
     @lock.synchronize do
       @count += 1
-      puts "Current count: #{@count}"
+      puts "Current count: #{@count}" #race condition
     end
   end
 end

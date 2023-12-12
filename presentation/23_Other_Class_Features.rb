@@ -45,5 +45,12 @@ end
 book2 = Book.create_with_allocate("To Kill a Mockingbird", "Harper Lee")
 puts "Book2: #{book2.title}, #{book2.author}"
 
+# Try to change the book genre
+begin
+  Book::GENRES << "Science Fiction"  # This will raise an error
+rescue => e
+  puts "Error: #{e}"
+end
+
 # Accessing the Class Constant
 puts "Book Genres: #{Book::GENRES.join(', ')}"

@@ -141,9 +141,10 @@ Made with :heart: by [**_Hugo Correia_**](https://github.com/MrLoydHD), [**_Duar
         - [**Polymorphism**](#polymorphism)
         - [**Mixins**](#mixins)
       - [4.16 - Regular Expressions](#416---regular-expressions)
-        - [**Regular Expressions**](#regular-expressions)
-        - [**Regular Expressions Methods**](#regular-expressions-methods)
+        - [**Regular Expressions Syntax**](#regular-expressions-syntax)
+        - [**Regular-Expression Modifiers**](#regular-expression-modifiers)
         - [**Regular Expressions Patterns**](#regular-expressions-patterns)
+        - [**Search and Replace**](#search-and-replace)
 
 ## Documentation
 
@@ -626,7 +627,7 @@ The following list shows the reserved words in Ruby. These reserved words may no
 
   - **Class Variables**
 
-    Class variables are accessible from anywhere within the class in which they are declared. They are declared using the `@@` character.
+    Class variables are accessible from anywhere within the instance of all classes in which they are declared. They are declared using the `@@` character.
 
     ```ruby
     # Class variable
@@ -3246,8 +3247,105 @@ The $! global variable contains the last exception that was raised, so we pass t
 
 #### 4.16 - Regular Expressions
 
-##### **Regular Expressions**
+##### **Regular Expressions Syntax**
 
-##### **Regular Expressions Methods**
+A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings using a specialized syntax held in a pattern.
+
+A regular expression literal is a pattern between slashes or between arbitrary delimiters followed by %r as follows
+
+```ruby
+/pattern/
+/pattern/im    # option can be specified
+%r!/usr/local! # general delimited regular expression
+```
+
+Example:
+
+```ruby
+line1 = "Cats are smarter than dogs";
+line2 = "Dogs also like meat";
+
+if ( line1 =~ /Cats(.*)/ )
+   puts "Line1 contains Cats"
+end
+if ( line2 =~ /Cats(.*)/ )
+   puts "Line2 contains  Dogs"
+end
+```
+
+##### **Regular-Expression Modifiers**
+
+Regular expression literals may include an optional modifier to control various aspects of matching. The modifier is specified after the closing delimiter of the regular expression. For example, /pattern/i specifies case-insensitive matching.
+
+The following table lists the most commonly used modifiers
+
+| Modifier | Description |
+| -------- | ----------- |
+| i | Performs case-insensitive matching, that is, characters in the pattern will match characters in the input string regardless of case. |
+| x | Ignores whitespace characters that are neither backslashed nor within a character class. |
+| m | Acts as if a newline character ($) was specified before a dot (.). |
+| u,e,s,n | Interprets the regexp as Unicode (UTF-8), EUC, SJIS, or ASCII. If none of these modifiers is specified, the regular expression is assumed to use the source encoding. |
+
+Example:
+
+```ruby
+line1 = "Cats are smarter than dogs";
+
+if ( line1 =~ /Cats(.*)/ )
+   puts "Line1 contains Cats"
+end
+
+if ( line1 =~ /cats(.*)/i )
+   puts "Line1 contains Cats"
+end
+```
 
 ##### **Regular Expressions Patterns**
+
+A pattern consists of one or more character literals, operators, or constructs. Table lists the basic constructs that match single chars, which are called character classes. Except for control characters, (+ ? . * ^ $ ( ) [ ] { } | \), all characters match themselves. You can escape a control character by preceding it with a backslash.
+
+More information about the patterns can be found on [Regular Expressions File](./Regular%20Expressions/RegularExpressionsPatterns.md).
+
+(**_Examples included_**)
+
+##### **Search and Replace**
+
+Some of the most important String methods that use regular expressions are sub and gsub, and their in-place variants sub! and gsub!.
+
+All of these methods perform a search-and-replace operation using a Regexp pattern. The sub & sub! replaces the first occurrence of the pattern and gsub & gsub! replaces all occurrences.
+
+The sub and gsub returns a new string, leaving the original unmodified where as sub! and gsub! modify the string on which they are called
+
+Example:
+
+```ruby
+phone = "2004-959-559 #This is Phone Number"
+
+# Delete Ruby-style comments
+phone = phone.sub!(/#.*$/, "")   
+puts "Phone Num : #{phone}"
+
+# Remove anything other than digits
+phone = phone.gsub!(/\D/, "")    
+puts "Phone Num : #{phone}"
+
+# Output
+Phone Num : 2004-959-559
+Phone Num : 2004959559
+```
+
+Another example:
+
+```ruby
+text = "rails are rails, really good Ruby on Rails"
+
+# Change "rails" to "Rails" throughout
+text.gsub!("rails", "Rails")
+
+# Capitalize the word "Rails" throughout
+text.gsub!(/\brails\b/, "Rails")
+puts "#{text}"
+
+# Output
+Rails are Rails, really good Ruby on Rails
+```

@@ -1,5 +1,7 @@
 class Book
     attr_accessor :title, :author
+     # @title
+     # @author
     def initialize(title, author)
          self.title = title
          @author = author
@@ -17,4 +19,7 @@ end
 
 book1 = Book.new("Harry Potter", "JK Rowling")
 
+puts book1.title
+
+#get title from accessor
 puts book1.title

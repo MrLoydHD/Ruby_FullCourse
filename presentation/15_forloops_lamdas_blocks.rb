@@ -29,5 +29,5 @@ end
 # Usando o lambda com um array
 lucky_nums = [4, 8, 15, 16, 23, 42]
 lucky_nums.each do |lucky_num|
-  print_number.call(lucky_num)
+  print_number.call(lucky_num) # Call serve para chamar a funcão lambda
 end
